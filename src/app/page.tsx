@@ -1,12 +1,14 @@
 "use client"
 import { Navigation } from '@/app/components/navigation';
-import { HelloNearContract, NetworkId } from '@/config';
+import { NetworkId } from '@/config';
 import { NearContext, Wallet } from '@/wallets/near';
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
 // Wallet instance
-const wallet: Wallet = new Wallet({ networkId: NetworkId, createAccessKeyFor: HelloNearContract });
+const wallet: Wallet = new Wallet({ networkId: NetworkId });
+// Optional: Create an access key so the user does not need to sign transactions. Read more about access keys here: https://docs.near.org/concepts/protocol/access-keys
+// const wallet: Wallet = new Wallet({ networkId: NetworkId, createAccessKeyFor: HelloNearContract });
 
 export default function Home() {
   const [signedAccountId, setSignedAccountId] = useState('');
