@@ -5,6 +5,7 @@ import { setupLedger } from '@near-wallet-selector/ledger';
 import { setupMeteorWallet } from '@near-wallet-selector/meteor-wallet';
 import { setupBitteWallet } from '@near-wallet-selector/bitte-wallet';
 import { setupModal } from '@near-wallet-selector/modal-ui';
+import { setupNightly } from '@near-wallet-selector/nightly';
 
 // near api js
 import { providers, utils } from 'near-api-js';
@@ -37,9 +38,10 @@ export class Wallet {
     this.selector = setupWalletSelector({
       network: this.networkId,
       modules: [
-        setupMeteorWallet(),
         setupBitteWallet(),
         setupLedger(),
+        setupMeteorWallet(),
+        setupNightly(),
       ],
     });
 
