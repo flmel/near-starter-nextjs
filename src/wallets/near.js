@@ -78,7 +78,7 @@ export class Wallet {
    * @param {Object} options - the options for the call
    * @param {string} options.contractId - the contract's account id
    * @param {string} options.method - the method to call
-   * @param {Object} options.args - the arguments to pass to the method
+   * @param {Object} [options.args] - the arguments to pass to the method
    * @returns {Promise<JSON.value>} - the result of the method call
    */
   viewMethod = async ({ contractId, method, args = {} }) => {
@@ -100,9 +100,9 @@ export class Wallet {
    * @param {Object} options - the options for the call
    * @param {string} options.contractId - the contract's account id
    * @param {string} options.method - the method to call
-   * @param {Object} options.args - the arguments to pass to the method
-   * @param {string} options.gas - the amount of gas to use
-   * @param {string} options.deposit - the amount of yoctoNEAR to deposit
+   * @param {Object} [options.args] - the arguments to pass to the method
+   * @param {string} [options.gas] - the amount of gas to use
+   * @param {string} [options.deposit] - the amount of yoctoNEAR to deposit
    * @returns {Promise<Transaction>} - the resulting transaction
    */
   callMethod = async ({ contractId, method, args = {}, gas = THIRTY_TGAS, deposit = NO_DEPOSIT }) => {

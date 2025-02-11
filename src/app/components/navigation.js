@@ -1,6 +1,5 @@
 "use client"
 import { useContext, useEffect, useState } from 'react';
-
 import { NearContext } from '@/wallets/near';
 
 export const Navigation = () => {
@@ -22,7 +21,7 @@ export const Navigation = () => {
 
   return (
     <nav className="flex justify-end p-4">
-      <button className="rounded-full transition-colors bg-foreground text-background hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5  " onClick={action}>
+      <button className="rounded-full transition-colors bg-foreground text-background hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5" onClick={action}>
           {label}
         </button>
     </nav>
