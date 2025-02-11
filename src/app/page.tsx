@@ -9,9 +9,9 @@ import Image from "next/image";
 const CONTRACT = HelloNearContract;
 
 // Wallet instance
-// const wallet: Wallet = new Wallet({ networkId: NetworkId });
+const wallet: Wallet = new Wallet({ networkId: NetworkId });
 // Optional: Create an access key so the user does not need to sign transactions. Read more about access keys here: https://docs.near.org/concepts/protocol/access-keys
-const wallet: Wallet = new Wallet({ networkId: NetworkId, createAccessKeyFor: HelloNearContract });
+// const wallet: Wallet = new Wallet({ networkId: NetworkId, createAccessKeyFor: HelloNearContract });
 
 export default function Home() {
   const [signedAccountId, setSignedAccountId] = useState('');
@@ -55,7 +55,8 @@ export default function Home() {
           <h2 className="font-bold">Interacting with contract: <span className="text-pink-600">{CONTRACT}</span></h2>
           <h2 className="font-bold text-4xl">Current greeting: <span className="text-pink-500">{greeting}</span></h2>
           <div className="w-100">
-            <div className="flex rounded-full h-12 transition-all border border-black focus-within:border-white hover:border-white duration-300" hidden={!loggedIn}>
+            <div hidden={!loggedIn}>
+            <div className="flex rounded-full h-12 transition-all border border-black focus-within:border-white hover:border-white duration-300">
               <input
                 type="text"
                 className="rounded-l-full  px-4 focus:outline-none "
@@ -66,6 +67,7 @@ export default function Home() {
                   <span hidden={showSpinner}>Save new greeting</span>
                   <i className="spinner-border spinner-border-sm" hidden={!showSpinner}></i>
                 </button>
+              </div>
             </div>
             <div className="w-100 text-end align-text-center" hidden={loggedIn}>
               <p className="m-0"> Please login to change the greeting </p>
